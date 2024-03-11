@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class StudentTests {
+public class StudentTest {
     private StudentXMLRepo studentFileRepository;
     private StudentValidator studentValidator;
     private Service service;
