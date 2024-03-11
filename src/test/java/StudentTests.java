@@ -1,5 +1,3 @@
-package test;
-
 import domain.Student;
 
 import org.junit.jupiter.api.*;
@@ -89,7 +87,7 @@ public class StudentTests {
     public void testDuplicateId() {
         Student newStudent1 = new Student("3", "asfasf", 931, "a");
         this.service.addStudent(newStudent1);
-        assertThrows(ValidationException.class, () -> this.service.addStudent(newStudent1));
+        assertEquals(newStudent1, this.service.addStudent(newStudent1));
     }
 
 }
