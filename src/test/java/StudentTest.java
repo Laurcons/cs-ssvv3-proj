@@ -48,15 +48,35 @@ public class StudentTest {
     }
 
     @Test
+    public void testGroupBiggerThan0Valid() {
+        Student newStudent1 = new Student("1", "Ana", 1, "ana@gmail.com");
+        this.service.addStudent(newStudent1);
+    }
+
+    @Test
     public void testNumeNotEmpty() {
         Student newStudent1 = new Student("1", "", 931, "ana@gmail.com");
         assertThrows(ValidationException.class, () -> this.service.addStudent(newStudent1));
+    }
+
+
+    @Test
+    public void testNumeNotEmptyValid() {
+        Student newStudent1 = new Student("1", "Cosmin", 931, "ana@gmail.com");
+        this.service.addStudent(newStudent1);
     }
 
     @Test
     public void testNumeNotNull() {
         Student newStudent1 = new Student("1", null, 931, "ana@gmail.com");
         assertThrows(ValidationException.class, () -> this.service.addStudent(newStudent1));
+    }
+
+
+    @Test
+    public void testNumeNotNullValid() {
+        Student newStudent1 = new Student("1", "Camelia", 931, "ana@gmail.com");
+        this.service.addStudent(newStudent1);
     }
 
     @Test
@@ -66,9 +86,21 @@ public class StudentTest {
     }
 
     @Test
+    public void testIdNotEmptyValid() {
+        Student newStudent1 = new Student("200", "asfasf", 931, "ana@gmail.com");
+        this.service.addStudent(newStudent1);
+    }
+
+    @Test
     public void testIdNotNull() {
         Student newStudent1 = new Student(null, "asfasf", 931, "ana@gmail.com");
         assertThrows(ValidationException.class, () -> this.service.addStudent(newStudent1));
+    }
+
+    @Test
+    public void testIdNotNullValid() {
+        Student newStudent1 = new Student("200", "asfasf", 931, "ana@gmail.com");
+        this.service.addStudent(newStudent1);
     }
 
     @Test
@@ -78,9 +110,21 @@ public class StudentTest {
     }
 
     @Test
+    public void testEmailNotEmptyValid() {
+        Student newStudent1 = new Student("3", "asfasf", 931, "ana@a.co");
+        this.service.addStudent(newStudent1);
+    }
+
+    @Test
     public void testEmailNotNull() {
         Student newStudent1 = new Student("3", "asfasf", 931, null);
         assertThrows(ValidationException.class, () -> this.service.addStudent(newStudent1));
+    }
+
+    @Test
+    public void testEmailNotNullValid() {
+        Student newStudent1 = new Student("3", "asfasf", 931, "cami@c.co");
+        this.service.addStudent(newStudent1);
     }
 
     @Test
