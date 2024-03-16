@@ -134,4 +134,10 @@ public class StudentTest {
         assertEquals(newStudent1, this.service.addStudent(newStudent1));
     }
 
+    @Test
+    public void testGroupBiggerThan0BVA() {
+        Student newStudent1 = new Student("1", "Ana", 0, "ana@gmail.com");
+        assertNull(this.service.addStudent(newStudent1));
+    }
+
 }
