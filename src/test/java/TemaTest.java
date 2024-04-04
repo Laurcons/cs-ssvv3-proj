@@ -57,4 +57,46 @@ public class TemaTest {
         assertThrows(ValidationException.class, () -> this.service.addTema(newTema1));
     }
 
+    @Test
+    public void testTemaDescriptionEmpty() {
+        Tema newTema1 = new Tema("1", "", 1, 1);
+        assertThrows(ValidationException.class, () -> this.service.addTema(newTema1));
+    }
+
+    @Test
+    public void testTemaDeadlineTooBig() {
+        Tema newTema1 = new Tema("1", "a", 15, 1);
+        assertThrows(ValidationException.class, () -> this.service.addTema(newTema1));
+    }
+
+    @Test
+    public void testTemaDeadlineTooSmall() {
+        Tema newTema1 = new Tema("1", "a", 0, 1);
+        assertThrows(ValidationException.class, () -> this.service.addTema(newTema1));
+    }
+
+    @Test
+    public void testTemaPrimireTooSmall() {
+        Tema newTema1 = new Tema("1", "a", 1, 15);
+        assertThrows(ValidationException.class, () -> this.service.addTema(newTema1));
+    }
+
+    @Test
+    public void testTemaPrimireTooBig() {
+        Tema newTema1 = new Tema("1", "a", 1, 15);
+        assertThrows(ValidationException.class, () -> this.service.addTema(newTema1));
+    }
+
+    @Test
+    public void testTemaValid() {
+        Tema newTema1 = new Tema("1", "a", 1, 1);
+        assertNull(this.service.addTema(newTema1));
+    }
+
+    @Test
+    public void testTemaDuplicate() {
+        Tema newTema1 = new Tema("1", "a", 1, 1);
+        assertNull(this.service.addTema(newTema1));
+        assertEquals(this.service.addTema(newTema1), newTema1);
+    }
 }
